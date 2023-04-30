@@ -4,4 +4,4 @@ services:
 before_install:
   - docker build -t nadavribak/docker-testings -f Dockerfile.dev .
 script:
-  - docker run -CI=true nadavribak/docker-testings npm run test
+  - docker run nadavribak/docker-testings npm run test -- --watchAll=false
