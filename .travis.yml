@@ -3,6 +3,8 @@ services:
   - docker
 before_install:
   - docker build -t nadavribak/docker-testings -f Dockerfile.dev .
+after_deploy:
+  - echo "done deploying"
 script:
   - docker run nadavribak/docker-testings npm run test -- --watchAll=false
 deploy:
@@ -14,6 +16,6 @@ deploy:
   bucket_path: "react-testings"
   on:
     branch: main
-  access_key_id: "$AWS_ACCESS_KEY"
+  access_key_id: $AWS_ACCESS_KEY
   secret_access_key: "$AWS_SECRET_KEY"
 
