@@ -5,3 +5,15 @@ before_install:
   - docker build -t nadavribak/docker-testings -f Dockerfile.dev .
 script:
   - docker run nadavribak/docker-testings npm run test -- --watchAll=false
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "react-testings"
+  env: "React-testings-env-1"
+  bucket_name: "elasticbeanstalk-us-east-1-914632565753"
+  bucket_path: "react-testings"
+  on:
+    branch: main
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
+
