@@ -1,26 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Box, Button, Container, Typography} from "@mui/material";
+import {useState} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [value, setValue] = useState(0);
+    return (
+        <Container >
+            <Typography my={2} variant="h5">Counter!</Typography>
+            <Box display="flex" justifyContent="space-evenly" alignContent="center" py={2} border="solid 1px">
+                <Button variant="contained" onClick={() => setValue(prevState => prevState - 1)}>-</Button>
+                <Typography variant="h6">{value}</Typography>
+                <Button variant="contained" onClick={() => setValue(prevState => prevState + 1)}>+</Button>
+            </Box>
+        </Container>
+    );
 }
 
-export default App;
