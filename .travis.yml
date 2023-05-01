@@ -10,12 +10,12 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "us-east-1"
-  app: "react-testings"
-  env: "react-testings-env"
+  app: "travis-ci"
+  env: "travis-ci-env"
   bucket_name: "elasticbeanstalk-us-east-1-914632565753"
-  bucket_path: "react-testings"
-  on:
-    branch: main
+  bucket_path: "travis-ci-env"
   access_key_id: "$AWS_ACCESS_KEY"
   secret_access_key: "$AWS_SECRET_KEY"
+  on:
+    branch: main
 
